@@ -7,3 +7,5 @@ When there is a single red line in a graph, that represents the mean value over 
 To test this program out on your own, download the files and modify 'textA.txt' and 'textB.txt' to any texts of your choosing. Ensure that Python and matplotlib are installed on your computer, and run the program by executing the 'compareTexts.py' file.
 
 For more details, check out the full writeup here: https://docs.google.com/document/d/1SCBBEZVfEmaED7xrbKXHzIHmYtACnwC-Zof0t2jDwuc/edit?usp=sharing
+
+Video demo available here: https://youtu.be/Db3JJigJR_w
