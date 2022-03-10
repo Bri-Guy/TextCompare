@@ -1,10 +1,12 @@
 import random
 import matplotlib.pyplot as plt
 
+#amount of bootstrapping trials
 NUM_TRIALS = 10000
 
 def main():
 
+    #input text files, modify here
     A = parse('textA.txt')
     B = parse('textB.txt')
 
@@ -26,6 +28,7 @@ def main():
     cl_diff = []
     auto_diff = []
 
+    #bootstrapping
     for i in range(NUM_TRIALS):
 
         sampleA = []
@@ -61,6 +64,7 @@ def main():
         if abs(sampleA_counts[0] - sampleB_counts[0]) > abs(Acounts[0] - Bcounts[0]):
             word_valid += 1
 
+    #output results
     fig, graph = plt.subplots(3, 2)
     graph[0, 0].hist(Acounts[2])
     graph[0, 0].set_title('Characters per Word in Text A')
@@ -109,14 +113,16 @@ def main():
 
     plt.show()
 
-
+#Automated Readability Index
 def auto_index(counts):
     return 4.71 * counts[4]/counts[5] + 0.5 * counts[5]/len(counts[3]) - 21.43
 
+#Coleman-Liau Index
 def cl_index(counts):
     sent_per_word = 1 / counts[1]
     return 0.0588 * 100 * counts[0] - 0.296 * 100 * sent_per_word - 15.8
 
+#Process Word and Sentence Lengths
 def get_counts(text):
     words_per_sent = 0
     sent_length = []
@@ -138,6 +144,7 @@ def get_counts(text):
 
     return (chars_per_word, words_per_sent, word_length, sent_length, total_chars, total_words)
 
+#Process Text Input Files
 def parse(filename):
     text = ""
     with open(filename) as f:
